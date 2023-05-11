@@ -1,84 +1,76 @@
-// module 1 .2
+// const book = {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     genres: ["historical prose", "adventure"],
+//     isPublic: true,
+//     rating: 8.38,
+//   };
+  
+//   // Деструктуризуємо
+//   const { title, author, isPublic, rating, coverImage } = book;
+//   console.log(coverImage); // undefined
+  
+//   const accessType = isPublic ? "публічному" : "закритому";
+//   const message = `Книга ${title} автора ${author} з рейтингом ${rating} знаходиться в ${accessType} доступі.`;
 
-// const target = 3;
-// let sum = 0;
+//   console.log(message);
 
-// for (let i = 0; i <= target; i += 1) {
-   
-//   sum += i;
-// }
+// doStuffWithBook({
+//     title: "The Last Kingdom",
+//     numberOfPages: 736,
+//     downloads: 10283,
+//     rating: 8.38,
+//     isPublic: true,
+//   });
 
-// console.log(sum);
-// const number = 10;
- 
-// for (let i = 0; i < number; i += 1) {
-//   if (i % 2 === 0) {
-//     continue;
+// function doStuffWithBook({
+//     title,
+//     numberOfPages,
+//     downloads,
+//     rating,
+//     isPublic,
+//   }) {
+//     console.log(title);
+//     console.log(numberOfPages);
+//     // І так далі
 //   }
 
-//   console.log("Непарне i: ", i); // 1, 3, 5, 7, 9
-// }
+//   // Колбек-функція
+// function greet(name) {
+//     console.log(`Ласкаво просимо ${name}.`);
+//   }
+  
+//   // Функція вищого порядку
+//   function registerGuest(name, callback) {
+//     console.log(`Реєструємо гостя ${name}.`);
+//     callback(name);
+//   }
+  
+//   registerGuest("Манго", greet);
 
-// let balans = 10000;
-// const payment = 2000;
+  function registerGuest(name, callback) {
+    console.log(`Реєструємо гостя ${name}.`);
+    callback(name);
+  }
+  
+  // Передаємо інлайн функцію greet у якості колбека
+  registerGuest("Манго", function greet(name) {
+    console.log(`Ласкаво просимо ${name}.`);
+  });
+  
+  // Передаємо інлайн функцію notify у якості колбека
+  registerGuest("Полі", function notify(name) {
+    console.log(`Шановний(а) ${name}, ваш номер буде готовий за 30 хвилин.`);
+  });
 
-// console.log(`Общая стоимость заказа ${payment} кредитов. Проверяем колличество средств доступных на счету.`);
+  const numbers = [5, 10, 15, 20, 25];
 
-// if (payment <= balans) {
-//     balans -= payment;
-//     console.log(`Все хорошо снимаем деньги`);
-//     console.log(`На счету осталось ${balans} кредитов`);
-// } else {
-//     console.log(`На счету недостаточно средств для проведения операции!!!`);
-// }
-// console.log(`Операция завешена`);
+// Класичний for
+for (let i = 0; i < numbers.length; i += 1) {
+  console.log(`Індекс ${i}, значення ${numbers[i]}`);
+}
 
-// let totalSpent = 2000;
-// let payment = 500;
-// let discount = 0;
-
-// if (totalSpent >= 100 && totalSpent < 1000) {
-//     console.log(`Бронзовый партнер!! Скидка 2%`);
-//     discount = 0.02;
-// } else if (totalSpent >= 1000 && totalSpent < 5000) {
-//    console.log(`Серебрянный партнер!! Скидка 5%`);
-//    discount = 0.05;
-// } else if (totalSpent >= 5000) {
-//     console.log(`Золотой партнер!! Скидка 10%`);
-//    discount = 0.1;
-// } else {
-//    console.log(`Не партнер. Скидка 0%.`);
-// }
-
-// payment -= payment * discount;
-// // payment = payment - payment * discount;
-// console.log(
-//     `Оформляем заказ на сумму ${payment} со скидкой ${discount * 100} %`);
-
-// totalSpent += payment;
-// console.log(`Общая сумма потраченного в магазине: ${totalSpent}`);
-
-
-// const btnAdd = document.querySelector('button[data-add]');
-// const btnReset = document.querySelector('button[data-reset]');
-// const valueInput = document.querySelector('input[data-value]');
-// const outputEL = document.querySelector('.js-output span');
-
-// let total = 0;
-
-// btnAdd.addEventListener('click', function () {
-//     console.log('click ups');
-//     const value = Number(valueInput.value);
-//     console.log(value);
-
-//     total += value;
-
-//     outputEL.textContent = total;
-   
-//     valueInput.value = '';
-// });
-
-// btnReset.addEventListener('click', function () {
-//     total = 0;
-//     outputEL.textContent = total;
-// });
+// Метод перебирання forEach
+numbers.forEach(function (number, index) {
+  console.log(`Індекс ${index}, значення ${number}`);
+});
